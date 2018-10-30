@@ -1,0 +1,8 @@
+/_build/
+/config/
+/.idea/
+/deps/
+/test/
+.formatter.exs
+mix.lock
+*.iml
