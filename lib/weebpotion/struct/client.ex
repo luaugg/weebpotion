@@ -11,24 +11,13 @@ defmodule WeebPotion.Struct.Client do
   end
 
   def random_image!(client, opts \\ []) when (client !== nil and opts !== nil and is_list(opts)) do
-    type = opts[:type]
-    if type === nil or !is_binary(type) or !is_atom(type), do: raise "type is nil or not a string/atom"
-
-    nsfw = opts[:nsfw] || false
-    if type !== nil and !is_boolean(nsfw), do: raise "nsfw is not a boolean"
-
-    hidden = opts[:nsfw] || false
-    if hidden !== nil and !is_boolean(hidden), do: raise "hidden is not a boolean"
-
-    filetype = opts[:filetype] || :both
-    if filetype !== nil and !is_atom(filetype), do: raise "filetype is not an atom"
-
-    link = "https://api.weeb.sh/images/random?type=#{opts[:type]}&nsfw=#{opts[:nsfw]}&hidden=#{hidden}"
+    link = "https://api.weeb.sh/images/random?type=#{opts[:type]}&nsfw=#{opts[:nsfw]}&hidden=#{opts[:hidden]}"
+    filetype = opts[:filetype]
     if filetype != :both, do: link <> "&filetype=#{filetype}"
 
     headers = ["Authorization": "#{client.token_type} #{client.token}"]
     HTTPoison.get!(link, headers, recv_timeout: 500).body
-    |> Poison.decode!()
+    |> Poison.decode!(as: %WeebPotion.Struct.Image{})
   end
 
 end
