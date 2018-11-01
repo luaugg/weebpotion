@@ -17,9 +17,12 @@ defmodule WeebPotion.Api do
     link = "/random?type=#{opts[:type]}&nsfw=#{opts[:nsfw] || false}&hidden=#{opts[:hidden] || false}"
     filetype = opts[:filetype]
     if filetype !== :both, do: link <> "&filetype=#{filetype}"
-
-    {:ok, response} = get(link, client.auth_header, recv_timeout: 500)
-    decode(response.body(), as: %Image{})
+    try do
+      {:ok, response} = get(link, client.auth_header, recv_timeout: 500)
+      {:ok, image} = decode(response.body(), as: %Image{})
+    catch
+      e -> {:error, e}
+    end
   end
 
   def image_info!(client, image_id) when (client !== nil and is_binary(image_id)) do
@@ -30,8 +33,12 @@ defmodule WeebPotion.Api do
 
   def image_info(client, image_id) when (client !== nil and is_binary(image_id)) do
     link = "/info/#{image_id}"
-    {:ok, response} = get(link, client.auth_header, recv_timeout: 500)
-    decode(response.body(), as: %Image{})
+    try do
+        {:ok, response} = get(link, client.auth_header, recv_timeout: 500)
+        {:ok, image} = decode(response.body(), as: %Image{})
+    catch
+      e -> {:error, e}
+    end
   end
 
   def image_types(client, opts \\ []) when (client !== nil and is_list(opts)) do
@@ -50,7 +57,7 @@ defmodule WeebPotion.Api do
         {:ok, types} = Map.fetch(body, "types")
       end
     catch
-      e in MatchError -> {:error, e}
+      e -> {:error, e}
     end
   end
 
