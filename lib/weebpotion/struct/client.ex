@@ -14,7 +14,7 @@ defmodule WeebPotion.Struct.Client do
   end
 
   def random_image!(client, opts \\ []) when (client !== nil and is_list(opts)) do
-    link = "random?type=#{opts[:type]}&nsfw=#{opts[:nsfw] || false}&hidden=#{opts[:hidden] || false}"
+    link = "/random?type=#{opts[:type]}&nsfw=#{opts[:nsfw] || false}&hidden=#{opts[:hidden] || false}"
     filetype = opts[:filetype]
     if filetype !== :both, do: link <> "&filetype=#{filetype}"
 
@@ -23,7 +23,7 @@ defmodule WeebPotion.Struct.Client do
   end
 
   def random_image(client, opts \\ []) when (client !== nil and is_list(opts)) do
-    link = "random?type=#{opts[:type]}&nsfw=#{opts[:nsfw] || false}&hidden=#{opts[:hidden] || false}"
+    link = "/random?type=#{opts[:type]}&nsfw=#{opts[:nsfw] || false}&hidden=#{opts[:hidden] || false}"
     filetype = opts[:filetype]
     if filetype !== :both, do: link <> "&filetype=#{filetype}"
 
