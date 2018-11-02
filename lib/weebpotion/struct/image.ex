@@ -14,6 +14,7 @@
 #   limitations under the License.
 
 defmodule WeebPotion.Struct.Image do
+  @moduledoc false
   @derive [Poison.Encoder]
   defstruct [
     :id,
