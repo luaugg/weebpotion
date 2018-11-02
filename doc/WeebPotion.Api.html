@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.19.1">
+    <title>WeebPotion.Api – weebpotion v0.2.1</title>
+    <link rel="stylesheet" href="dist/app-240d7fc7e5.css" />
+    <script src="dist/sidebar_items-36be666ad8.js"></script>
+    
+  </head>
+  <body data-type="modules">
+    <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
+    <div class="main">
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Sidebar</span>
+</button>
+<button class="sidebar-button night-mode-toggle">
+  <span class="icon-theme" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Theme</span>
+</button>
+<section class="sidebar">
+
+  <a href="api-reference.html" class="sidebar-projectLink">
+    <div class="sidebar-projectDetails">
+      <h1 class="sidebar-projectName">
+weebpotion      </h1>
+      <h2 class="sidebar-projectVersion">
+        v0.2.1
+      </h2>
+    </div>
+  </a>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button">
+      <span class="icon-search" aria-hidden="true"></span>
+    </button>
+    <input name="q" type="text" id="search-list" class="search-input" placeholder="Search" aria-label="Search" autocomplete="off" />
+  </form>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+
+      <h1>
+        <small class="visible-xs">weebpotion v0.2.1</small>
+WeebPotion.Api              </h1>
+
+
+        <section id="moduledoc">
+<p>Contains all the functionality of WeebPotion, such as requesting random images (via <a href="#random_image!/2"><code class="inline">random_image!/2</code></a> and <a href="#random_image/2"><code class="inline">random_image/2</code></a>) etc.
+All function names ending with an exclamation mark indicate functions that fail-fast, as is Erlang tradition.</p>
+        </section>
+
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+          
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#image_info!/2">image_info!(client, image_id)</a>
+  </div>
+    <div class="summary-synopsis"><p>Requests an image object associated with a specific ID and fails-fast unlike the “non-banged” <a href="#image_info/2"><code class="inline">image_info/2</code></a> variant</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#image_info/2">image_info(client, image_id)</a>
+  </div>
+    <div class="summary-synopsis"><p>Requests an image object associated with a specific ID but doesn’t fail fast unlike the “banged” <a href="#image_info!/2"><code class="inline">image_info!/2</code></a> variant</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#image_tags!/2">image_tags!(client, opts \\ [])</a>
+  </div>
+    <div class="summary-synopsis"><p>Requests a list of image tags. Fails fast unlike the “non-banged” <a href="#image_tags/2"><code class="inline">image_tags/2</code></a> variant</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#image_tags/2">image_tags(client, opts \\ [])</a>
+  </div>
+    <div class="summary-synopsis"><p>Requests a list of image tags. Doesn’t fail fast unlike the “banged” <a href="#image_tags!/2"><code class="inline">image_tags!/2</code></a> variant</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#image_types!/2">image_types!(client, opts \\ [])</a>
+  </div>
+    <div class="summary-synopsis"><p>Requests a list of image types which change depending on the options passed. Fails fast unlike the “non-banged” <a href="#image_types/2"><code class="inline">image_types/2</code></a> variant</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#image_types/2">image_types(client, opts \\ [])</a>
+  </div>
+    <div class="summary-synopsis"><p>Requests a list of image types which change depending on the options passed. Doesn’t fail fast unlike the “banged” <a href="#image_types!/2"><code class="inline">image_types!/2</code></a> variant</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#random_image!/2">random_image!(client, opts \\ [])</a>
+  </div>
+    <div class="summary-synopsis"><p>Requests a random image with a given type from weeb.sh, but fails fast unlike the “non-banged” <a href="#random_image/2"><code class="inline">random_image/2</code></a> variant</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#random_image/2">random_image(client, opts \\ [])</a>
+  </div>
+    <div class="summary-synopsis"><p>Requests a random image with a given type from weeb.sh, but doesn’t fail fast unlike the “banged” <a href="#random_image!/2"><code class="inline">random_image!/2</code></a> variant</p>
+</div>
+</div>
+  </div>
+          
+        </section>
+
+
+
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Functions
+          </h1>
+<div class="detail" id="image_info!/2">
+    <div class="detail-header">
+    <a href="#image_info!/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">image_info!(client, image_id)</span>
+        
+      <div class="specs">
+          <pre>image_info!(<a href="WeebPotion.Struct.Client.html#t:t/0">WeebPotion.Struct.Client.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) ::
+  <a href="WeebPotion.Struct.Image.html#t:t/0">WeebPotion.Struct.Image.t</a>()</pre>
+      </div>
+  </div>
+  <section class="docstring">
+<p>Requests an image object associated with a specific ID and fails-fast unlike the “non-banged” <a href="#image_info/2"><code class="inline">image_info/2</code></a> variant.</p>
+<h2 id="image_info!/2-parameters" class="section-heading">
+  <a href="#image_info!/2-parameters" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Parameters
+</h2>
+
+<ul>
+<li><code class="inline">client</code>: A <a href="WeebPotion.Struct.Client.html"><code class="inline">WeebPotion.Struct.Client</code></a> instance, used to authenticate the request.
+</li>
+<li><code class="inline">image_id</code>: The ID of the image you want information on.
+</li>
+</ul>
+<h2 id="image_info!/2-examples" class="section-heading">
+  <a href="#image_info!/2-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt;</span><span class="nc">WeebPotion.Api</span><span class="o">.</span><span class="n">image_info!</span><span class="p" data-group-id="1402593881-1">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;r1WMmLQvW&quot;</span><span class="p" data-group-id="1402593881-1">)</span><span class="w">
+</span><span class="p" data-group-id="1402593881-2">%</span><span class="nc" data-group-id="1402593881-2">WeebPotion.Struct.Image</span><span class="p" data-group-id="1402593881-2">{</span><span class="w">
+  </span><span class="ss">account</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;HyxjFGfPb&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">baseType</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cry&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">fileType</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gif&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">hidden</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+  </span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;r1WMmLQvW&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">mimeType</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;image/gif&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">nsfw</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+  </span><span class="ss">source</span><span class="p">:</span><span class="w"> </span><span class="no">nil</span><span class="p">,</span><span class="w">
+  </span><span class="ss">tags</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1402593881-3">[</span><span class="p" data-group-id="1402593881-3">]</span><span class="p">,</span><span class="w">
+  </span><span class="ss">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cry&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://cdn.weeb.sh/images/r1WMmLQvW.gif&quot;</span><span class="w">
+</span><span class="p" data-group-id="1402593881-2">}</span></code></pre>
+  </section>
+</div>
+<div class="detail" id="image_info/2">
+    <div class="detail-header">
+    <a href="#image_info/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">image_info(client, image_id)</span>
+        
+      <div class="specs">
+          <pre>image_info(<a href="WeebPotion.Struct.Client.html#t:t/0">WeebPotion.Struct.Client.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) ::
+  {:ok, <a href="WeebPotion.Struct.Image.html#t:t/0">WeebPotion.Struct.Image.t</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>()}</pre>
+      </div>
+  </div>
+  <section class="docstring">
+<p>Requests an image object associated with a specific ID but doesn’t fail fast unlike the “banged” <a href="#image_info!/2"><code class="inline">image_info!/2</code></a> variant.</p>
+<h2 id="image_info/2-parameters" class="section-heading">
+  <a href="#image_info/2-parameters" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Parameters
+</h2>
+
+<ul>
+<li><code class="inline">client</code>: A <a href="WeebPotion.Struct.Client.html"><code class="inline">WeebPotion.Struct.Client</code></a> instance, used to authenticate the request.
+</li>
+<li><code class="inline">image_id</code>: The ID of the image you want information on.
+</li>
+</ul>
+<h2 id="image_info/2-examples" class="section-heading">
+  <a href="#image_info/2-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt;</span><span class="nc">WeebPotion.Api</span><span class="o">.</span><span class="n">image_info</span><span class="p" data-group-id="7352047225-1">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;r1WMmLQvW&quot;</span><span class="p" data-group-id="7352047225-1">)</span><span class="w">
+</span><span class="p" data-group-id="7352047225-2">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="7352047225-3">%</span><span class="nc" data-group-id="7352047225-3">WeebPotion.Struct.Image</span><span class="p" data-group-id="7352047225-3">{</span><span class="w">
+  </span><span class="ss">account</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;HyxjFGfPb&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">baseType</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cry&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">fileType</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gif&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">hidden</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+  </span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;r1WMmLQvW&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">mimeType</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;image/gif&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">nsfw</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+  </span><span class="ss">source</span><span class="p">:</span><span class="w"> </span><span class="no">nil</span><span class="p">,</span><span class="w">
+  </span><span class="ss">tags</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="7352047225-4">[</span><span class="p" data-group-id="7352047225-4">]</span><span class="p">,</span><span class="w">
+  </span><span class="ss">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cry&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://cdn.weeb.sh/images/r1WMmLQvW.gif&quot;</span><span class="w">
+</span><span class="p" data-group-id="7352047225-3">}</span><span class="p" data-group-id="7352047225-2">}</span></code></pre>
+  </section>
+</div>
+<div class="detail" id="image_tags!/2">
+  
+    <span id="image_tags!/1"></span>
+  <div class="detail-header">
+    <a href="#image_tags!/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">image_tags!(client, opts \\ [])</span>
+        
+      <div class="specs">
+          <pre>image_tags!(<a href="WeebPotion.Struct.Client.html#t:t/0">WeebPotion.Struct.Client.t</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">list</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">list</a>()</pre>
+      </div>
+  </div>
+  <section class="docstring">
+<p>Requests a list of image tags. Fails fast unlike the “non-banged” <a href="#image_tags/2"><code class="inline">image_tags/2</code></a> variant.</p>
+<h2 id="image_tags!/2-parameters" class="section-heading">
+  <a href="#image_tags!/2-parameters" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Parameters
+</h2>
+
+<ul>
+<li><code class="inline">client</code>: A <a href="WeebPotion.Struct.Client.html"><code class="inline">WeebPotion.Struct.Client</code></a> instance, used to authenticate requests.
+</li>
+<li><code class="inline">opts</code>: A key-word list of options that modify the response received.
+</li>
+</ul>
+<h2 id="image_tags!/2-examples" class="section-heading">
+  <a href="#image_tags!/2-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt;</span><span class="nc">WeebPotion.Api</span><span class="o">.</span><span class="n">image_tags</span><span class="p" data-group-id="5376601520-1">(</span><span class="n">client</span><span class="p" data-group-id="5376601520-1">)</span><span class="w">
+</span><span class="p" data-group-id="5376601520-2">[</span><span class="s">&quot;nuzzle&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;cuddle&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;momiji inubashiri&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;wan&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;astolfo&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;facedesk&quot;</span><span class="p">,</span><span class="w">
+</span><span class="s">&quot;everyone&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b1nzy&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;trap_normal&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;trap_memes&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;meta-pixiv-8189060&quot;</span><span class="p" data-group-id="5376601520-2">]</span></code></pre>
+<h2 id="image_tags!/2-supported-options" class="section-heading">
+  <a href="#image_tags!/2-supported-options" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Supported Options
+</h2>
+
+<ul>
+<li><code class="inline">:hidden</code> - Whether or not to show hidden image tags you uploaded. Defaults to <code class="inline">false</code>.
+</li>
+<li><code class="inline">:nsfw</code> - Whether or not to show NSFW image tags. Defaults to <code class="inline">false</code>.
+</li>
+</ul>
+  </section>
+</div>
+<div class="detail" id="image_tags/2">
+  
+    <span id="image_tags/1"></span>
+  <div class="detail-header">
+    <a href="#image_tags/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">image_tags(client, opts \\ [])</span>
+        
+      <div class="specs">
+          <pre>image_tags(<a href="WeebPotion.Struct.Client.html#t:t/0">WeebPotion.Struct.Client.t</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">list</a>()) ::
+  {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">list</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>()}</pre>
+      </div>
+  </div>
+  <section class="docstring">
+<p>Requests a list of image tags. Doesn’t fail fast unlike the “banged” <a href="#image_tags!/2"><code class="inline">image_tags!/2</code></a> variant.</p>
+<h2 id="image_tags/2-parameters" class="section-heading">
+  <a href="#image_tags/2-parameters" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Parameters
+</h2>
+
+<ul>
+<li><code class="inline">client</code>: A <a href="WeebPotion.Struct.Client.html"><code class="inline">WeebPotion.Struct.Client</code></a> instance, used to authenticate requests.
+</li>
+<li><code class="inline">opts</code>: A key-word list of options that modify the response received.
+</li>
+</ul>
+<h2 id="image_tags/2-examples" class="section-heading">
+  <a href="#image_tags/2-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt;</span><span class="nc">WeebPotion.Api</span><span class="o">.</span><span class="n">image_tags</span><span class="p" data-group-id="5570131998-1">(</span><span class="n">client</span><span class="p" data-group-id="5570131998-1">)</span><span class="w">
+</span><span class="p" data-group-id="5570131998-2">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5570131998-3">[</span><span class="s">&quot;nuzzle&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;cuddle&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;momiji inubashiri&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;wan&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;astolfo&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;facedesk&quot;</span><span class="p">,</span><span class="w">
+</span><span class="s">&quot;everyone&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b1nzy&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;trap_normal&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;trap_memes&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;meta-pixiv-8189060&quot;</span><span class="p" data-group-id="5570131998-3">]</span><span class="p" data-group-id="5570131998-2">}</span></code></pre>
+<h2 id="image_tags/2-supported-options" class="section-heading">
+  <a href="#image_tags/2-supported-options" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Supported Options
+</h2>
+
+<ul>
+<li><code class="inline">:hidden</code> - Whether or not to show hidden image tags you uploaded. Defaults to <code class="inline">false</code>.
+</li>
+<li><code class="inline">:nsfw</code> - Whether or not to show NSFW image tags. Defaults to <code class="inline">false</code>.
+</li>
+</ul>
+  </section>
+</div>
+<div class="detail" id="image_types!/2">
+  
+    <span id="image_types!/1"></span>
+  <div class="detail-header">
+    <a href="#image_types!/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">image_types!(client, opts \\ [])</span>
+        
+      <div class="specs">
+          <pre>image_types!(<a href="WeebPotion.Struct.Client.html#t:t/0">WeebPotion.Struct.Client.t</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">list</a>()) ::
+  <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">list</a>() | [{<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>()}]</pre>
+      </div>
+  </div>
+  <section class="docstring">
+<p>Requests a list of image types which change depending on the options passed. Fails fast unlike the “non-banged” <a href="#image_types/2"><code class="inline">image_types/2</code></a> variant.</p>
+<h2 id="image_types!/2-parameters" class="section-heading">
+  <a href="#image_types!/2-parameters" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Parameters
+</h2>
+
+<ul>
+<li><code class="inline">client</code>: A <a href="WeebPotion.Struct.Client.html"><code class="inline">WeebPotion.Struct.Client</code></a> instance, used to authenticate the request.
+</li>
+<li><code class="inline">opts</code>: A key-word list of options that modify the response received.
+</li>
+</ul>
+<h2 id="image_types!/2-examples" class="section-heading">
+  <a href="#image_types!/2-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt;</span><span class="nc">WeebPotion.Api</span><span class="o">.</span><span class="n">image_types</span><span class="p" data-group-id="0199491036-1">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="ss">preview</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p" data-group-id="0199491036-1">)</span><span class="w">
+</span><span class="p" data-group-id="0199491036-2">[</span><span class="p" data-group-id="0199491036-3">{</span><span class="s">&quot;awoo&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="0199491036-4">%{</span><span class="w">
+  </span><span class="s">&quot;baseType&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="s">&quot;awoo&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s">&quot;fileType&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="s">&quot;gif&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s">&quot;id&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="s">&quot;BJZfMrXwb&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s">&quot;type&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="s">&quot;awoo&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s">&quot;url&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="s">&quot;https://cdn.weeb.sh/images/BJZfMrXwb.gif&quot;</span><span class="w">
+ </span><span class="p" data-group-id="0199491036-4">}</span><span class="p" data-group-id="0199491036-3">}</span><span class="p">,</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="0199491036-2">]</span></code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt;</span><span class="nc">WeebPotion.Api</span><span class="o">.</span><span class="n">image_types</span><span class="p" data-group-id="5026109942-1">(</span><span class="n">client</span><span class="p" data-group-id="5026109942-1">)</span><span class="w">
+</span><span class="p" data-group-id="5026109942-2">[</span><span class="s">&quot;awoo&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bang&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;blush&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="5026109942-2">]</span></code></pre>
+<h2 id="image_types!/2-supported-options" class="section-heading">
+  <a href="#image_types!/2-supported-options" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Supported Options
+</h2>
+
+<ul>
+<li><code class="inline">:nsfw</code>: Whether or not NSFW image types should be returned. Defaults to <code class="inline">false</code>.
+</li>
+<li><code class="inline">:hidden</code>: Whether or not hidden images you uploaded should be returned. Defaults to <code class="inline">false</code>.
+</li>
+<li><code class="inline">:preview</code>: Whether or not preview images should be returned along with their associated types. Defaults to <code class="inline">false</code>.
+</li>
+</ul>
+  </section>
+</div>
+<div class="detail" id="image_types/2">
+  
+    <span id="image_types/1"></span>
+  <div class="detail-header">
+    <a href="#image_types/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">image_types(client, opts \\ [])</span>
+        
+      <div class="specs">
+          <pre>image_types(<a href="WeebPotion.Struct.Client.html#t:t/0">WeebPotion.Struct.Client.t</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">list</a>()) ::
+  {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">list</a>()} | {:ok, [{<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>()}]} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>()}</pre>
+      </div>
+  </div>
+  <section class="docstring">
+<p>Requests a list of image types which change depending on the options passed. Doesn’t fail fast unlike the “banged” <a href="#image_types!/2"><code class="inline">image_types!/2</code></a> variant.</p>
+<h2 id="image_types/2-parameters" class="section-heading">
+  <a href="#image_types/2-parameters" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Parameters
+</h2>
+
+<ul>
+<li><code class="inline">client</code>: A <a href="WeebPotion.Struct.Client.html"><code class="inline">WeebPotion.Struct.Client</code></a> instance, used to authenticate the request.
+</li>
+<li><code class="inline">opts</code>: A key-word list of options that modify the response received.
+</li>
+</ul>
+<h2 id="image_types/2-examples" class="section-heading">
+  <a href="#image_types/2-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt;</span><span class="nc">WeebPotion.Api</span><span class="o">.</span><span class="n">image_types</span><span class="p" data-group-id="1509254472-1">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="ss">preview</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p" data-group-id="1509254472-1">)</span><span class="w">
+</span><span class="p" data-group-id="1509254472-2">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="1509254472-3">[</span><span class="p" data-group-id="1509254472-4">{</span><span class="s">&quot;awoo&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="1509254472-5">%{</span><span class="w">
+  </span><span class="s">&quot;baseType&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="s">&quot;awoo&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s">&quot;fileType&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="s">&quot;gif&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s">&quot;id&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="s">&quot;BJZfMrXwb&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s">&quot;type&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="s">&quot;awoo&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="s">&quot;url&quot;</span><span class="w"> </span><span class="o">=</span><span class="o">&gt;</span><span class="w"> </span><span class="s">&quot;https://cdn.weeb.sh/images/BJZfMrXwb.gif&quot;</span><span class="w">
+ </span><span class="p" data-group-id="1509254472-5">}</span><span class="p" data-group-id="1509254472-4">}</span><span class="p">,</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="1509254472-3">]</span><span class="p" data-group-id="1509254472-2">}</span></code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt;</span><span class="nc">WeebPotion.Api</span><span class="o">.</span><span class="n">image_types</span><span class="p" data-group-id="2085382311-1">(</span><span class="n">client</span><span class="p" data-group-id="2085382311-1">)</span><span class="w">
+</span><span class="p" data-group-id="2085382311-2">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2085382311-3">[</span><span class="s">&quot;awoo&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bang&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;blush&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="2085382311-3">]</span><span class="p" data-group-id="2085382311-2">}</span></code></pre>
+<h2 id="image_types/2-supported-options" class="section-heading">
+  <a href="#image_types/2-supported-options" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Supported Options
+</h2>
+
+<ul>
+<li><code class="inline">:nsfw</code>: Whether or not NSFW image types should be returned. Defaults to <code class="inline">false</code>.
+</li>
+<li><code class="inline">:hidden</code>: Whether or not hidden images you uploaded should be returned. Defaults to <code class="inline">false</code>.
+</li>
+<li><code class="inline">:preview</code>: Whether or not preview images should be returned along with their associated types. Defaults to <code class="inline">false</code>.
+</li>
+</ul>
+  </section>
+</div>
+<div class="detail" id="random_image!/2">
+  
+    <span id="random_image!/1"></span>
+  <div class="detail-header">
+    <a href="#random_image!/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">random_image!(client, opts \\ [])</span>
+        
+      <div class="specs">
+          <pre>random_image!(<a href="WeebPotion.Struct.Client.html#t:t/0">WeebPotion.Struct.Client.t</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">list</a>()) ::
+  <a href="WeebPotion.Struct.Image.html#t:t/0">WeebPotion.Struct.Image.t</a>()</pre>
+      </div>
+  </div>
+  <section class="docstring">
+<p>Requests a random image with a given type from weeb.sh, but fails fast unlike the “non-banged” <a href="#random_image/2"><code class="inline">random_image/2</code></a> variant.</p>
+<h2 id="random_image!/2-parameters" class="section-heading">
+  <a href="#random_image!/2-parameters" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Parameters
+</h2>
+
+<ul>
+<li><code class="inline">client</code>: A <a href="WeebPotion.Struct.Client.html"><code class="inline">WeebPotion.Struct.Client</code></a> instance.
+</li>
+<li><code class="inline">opts</code>: A key-word list of arguments which can be passed to return different results.
+</li>
+</ul>
+<h2 id="random_image!/2-examples" class="section-heading">
+  <a href="#random_image!/2-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt;</span><span class="nc">WeebPotion.Api</span><span class="o">.</span><span class="n">random_image</span><span class="p" data-group-id="0477476128-1">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="ss">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cry&quot;</span><span class="p" data-group-id="0477476128-1">)</span><span class="w">
+</span><span class="p" data-group-id="0477476128-2">%</span><span class="nc" data-group-id="0477476128-2">WeebPotion.Struct.Image</span><span class="p" data-group-id="0477476128-2">{</span><span class="w">
+  </span><span class="ss">account</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;HyxjFGfPb&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">baseType</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cry&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">fileType</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gif&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">hidden</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+  </span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;r1WMmLQvW&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">mimeType</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;image/gif&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">nsfw</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+  </span><span class="ss">source</span><span class="p">:</span><span class="w"> </span><span class="no">nil</span><span class="p">,</span><span class="w">
+  </span><span class="ss">tags</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0477476128-3">[</span><span class="p" data-group-id="0477476128-3">]</span><span class="p">,</span><span class="w">
+  </span><span class="ss">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cry&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://cdn.weeb.sh/images/r1WMmLQvW.gif&quot;</span><span class="w">
+</span><span class="p" data-group-id="0477476128-2">}</span></code></pre>
+<h2 id="random_image!/2-supported-options" class="section-heading">
+  <a href="#random_image!/2-supported-options" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Supported Options
+</h2>
+
+<ul>
+<li><code class="inline">type</code>: A mandatory option which tells weeb.sh what type of image to send.
+</li>
+<li><code class="inline">nsfw</code>: If NSFW images should be sent. Can be equal to <code class="inline">true</code>, <code class="inline">false</code> or <code class="inline">:only</code>. Defaults to <code class="inline">false</code>.
+</li>
+<li><code class="inline">hidden</code>: If hidden images you uploaded should be sent. Can be equal to <code class="inline">true</code> or <code class="inline">false</code>. Defaults to <code class="inline">false</code>.
+</li>
+<li><code class="inline">filetype</code>: What filetype images should be. Can be equal to <code class="inline">:gif</code>, <code class="inline">:jpg</code>, <code class="inline">:jpeg</code>, <code class="inline">:png</code> or <code class="inline">:both</code>. Defaults to <code class="inline">:both</code>.
+</li>
+</ul>
+  </section>
+</div>
+<div class="detail" id="random_image/2">
+  
+    <span id="random_image/1"></span>
+  <div class="detail-header">
+    <a href="#random_image/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">random_image(client, opts \\ [])</span>
+        
+      <div class="specs">
+          <pre>random_image(<a href="WeebPotion.Struct.Client.html#t:t/0">WeebPotion.Struct.Client.t</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">list</a>()) ::
+  {:ok, <a href="WeebPotion.Struct.Image.html#t:t/0">WeebPotion.Struct.Image.t</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>()}</pre>
+      </div>
+  </div>
+  <section class="docstring">
+<p>Requests a random image with a given type from weeb.sh, but doesn’t fail fast unlike the “banged” <a href="#random_image!/2"><code class="inline">random_image!/2</code></a> variant.</p>
+<h2 id="random_image/2-parameters" class="section-heading">
+  <a href="#random_image/2-parameters" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Parameters
+</h2>
+
+<ul>
+<li><code class="inline">client</code>: A <a href="WeebPotion.Struct.Client.html"><code class="inline">WeebPotion.Struct.Client</code></a> instance.
+</li>
+<li><code class="inline">opts</code>: A key-word list of arguments which can be passed to return different results.
+</li>
+</ul>
+<h2 id="random_image/2-examples" class="section-heading">
+  <a href="#random_image/2-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt;</span><span class="nc">WeebPotion.Api</span><span class="o">.</span><span class="n">random_image</span><span class="p" data-group-id="1116448792-1">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="ss">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cry&quot;</span><span class="p" data-group-id="1116448792-1">)</span><span class="w">
+</span><span class="p" data-group-id="1116448792-2">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="1116448792-3">%</span><span class="nc" data-group-id="1116448792-3">WeebPotion.Struct.Image</span><span class="p" data-group-id="1116448792-3">{</span><span class="w">
+  </span><span class="ss">account</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;HyxjFGfPb&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">baseType</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cry&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">fileType</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gif&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">hidden</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+  </span><span class="ss">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;r1WMmLQvW&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">mimeType</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;image/gif&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">nsfw</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">,</span><span class="w">
+  </span><span class="ss">source</span><span class="p">:</span><span class="w"> </span><span class="no">nil</span><span class="p">,</span><span class="w">
+  </span><span class="ss">tags</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1116448792-4">[</span><span class="p" data-group-id="1116448792-4">]</span><span class="p">,</span><span class="w">
+  </span><span class="ss">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cry&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://cdn.weeb.sh/images/r1WMmLQvW.gif&quot;</span><span class="w">
+</span><span class="p" data-group-id="1116448792-3">}</span><span class="p" data-group-id="1116448792-2">}</span></code></pre>
+<h2 id="random_image/2-supported-options" class="section-heading">
+  <a href="#random_image/2-supported-options" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Supported Options
+</h2>
+
+<ul>
+<li><code class="inline">type</code>: A mandatory option which tells weeb.sh what type of image to send.
+</li>
+<li><code class="inline">nsfw</code>: If NSFW images should be sent. Can be equal to <code class="inline">true</code>, <code class="inline">false</code> or <code class="inline">:only</code>. Defaults to <code class="inline">false</code>.
+</li>
+<li><code class="inline">hidden</code>: If hidden images you uploaded should be sent. Can be equal to <code class="inline">true</code> or <code class="inline">false</code>. Defaults to <code class="inline">false</code>.
+</li>
+<li><code class="inline">filetype</code>: What filetype images should be. Can be equal to <code class="inline">:gif</code>, <code class="inline">:jpg</code>, <code class="inline">:jpeg</code>, <code class="inline">:png</code> or <code class="inline">:both</code>. Defaults to <code class="inline">:both</code>.
+</li>
+</ul>
+  </section>
+</div>
+        </section>
+
+          <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.19.1),
+          </span>
+          <span class="line">
+            designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            </span>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  <script src="dist/app-a0c90688fa.js"></script>
+  
+  </body>
+</html>
+
