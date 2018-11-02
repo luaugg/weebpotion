@@ -107,4 +107,39 @@ defmodule WeebPotion.Api do
     link = "/info/#{image_id}"
     delete!(link, client.auth_header, recv_timeout: 500)
   end
+
+  def list_images(client, account_id \\ nil) when (client !== nil) do
+    if account_id !== nil do
+      if !is_binary(account_id) do
+        {:error, :not_a_binary}
+      else
+        try do
+          {:ok, response} = get("/list/#{account_id}")
+          {:ok, body} = decode(response.body())
+        catch
+          e -> {:error, e}
+        end
+      end
+    else
+      try do
+        {:ok, response} = get("/list")
+        {:ok, body} = decode(response.body())
+      catch
+        e -> {:error, e}
+      end
+    end
+  end
+
+  def list_images!(client, account_id \\ nil) when (client !== nil) do
+    if account_id !== nil do
+      if !is_binary(account_id) do
+        raise "not a binary!"
+      end
+      get!("/list/#{account_id}").body()
+      |> decode!()
+    else
+      get!("/list").body()
+      |> decode!()
+    end
+  end
 end
