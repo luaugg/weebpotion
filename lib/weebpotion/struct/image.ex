@@ -14,6 +14,10 @@
 #   limitations under the License.
 
 defmodule WeebPotion.Struct.Image do
+  @moduledoc """
+  Represents a single image returned from weeb.sh. As of v0.2.0, this type is only returned for
+  responses which are just images, so lists containing images will just be maps inside lists.
+  """
   @derive [Poison.Encoder]
   defstruct [
     :id,
