@@ -1,6 +1,5 @@
 defmodule WeebPotionTest do
   use ExUnit.Case
-  doctest WeebPotion.Api
 
   setup_all do
     WeebPotion.Struct.Client.start []
@@ -14,11 +13,11 @@ defmodule WeebPotionTest do
   end
 
   test "get all image types", state do
-    IO.inspect WeebPotion.Api.image_types(state[:client])
+    IO.inspect WeebPotion.Api.image_types(state[:client], preview: true)
   end
 
   test "get all image tags banged", state do
-    IO.inspect WeebPotion.Api.image_tags!(state[:client])
+    IO.inspect WeebPotion.Api.image_tags!(state[:client], preview: true)
   end
 
   test "get all image tags", state do
