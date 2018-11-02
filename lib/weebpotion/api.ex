@@ -44,8 +44,8 @@ defmodule WeebPotion.Api do
   def image_types(client, opts \\ []) when (client !== nil and is_list(opts)) do
     preview = opts[:preview] || false
     link = "/types?type=#{opts[:type]}&nsfw=#{opts[:nsfw] || false}&hidden=#{opts[:hidden] || false}&preview=#{preview}"
-    {:ok, response} = get(link, client.auth_header, recv_timeout: 500)
     try do
+      {:ok, response} = get(link, client.auth_header, recv_timeout: 500)
       {:ok, body} = decode(response.body())
       if preview do
         {:ok, types} = Map.fetch(body, "types")
