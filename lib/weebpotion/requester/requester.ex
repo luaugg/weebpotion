@@ -14,6 +14,25 @@
 #   limitations under the License.
 
 defmodule WeebPotion.Requester do
+  @moduledoc """
+  Requester Module used entirely for shortening links. May be expanded on in the future.
+
+  Provides the `process_request_url/1` function to do just that.
+  """
   use HTTPoison.Base
+
+  @doc """
+  Prepends `https://api.weeb.sh/images` to all URLs that requests are made to via this requester.
+
+  ## Parameters
+
+    - url: String that represents any weeb.sh endpoint.
+
+  ## Examples
+
+    iex> WeebPotion.Requester.process_request_url("/random")
+    "https://api.weeb.sh/images/random"
+  """
+  @spec process_request_url(String.t()) :: String.t()
   def process_request_url(url), do: "https://api.weeb.sh/images" <> url
 end
