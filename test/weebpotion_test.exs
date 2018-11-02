@@ -4,7 +4,9 @@ defmodule WeebPotionTest do
 
   setup_all do
     WeebPotion.Struct.Client.start []
-    {:ok, client: WeebPotion.Struct.Client.new(System.get_env("client_token"))}
+    client = WeebPotion.Struct.Client.new(token: System.get_env("client_token"), application_name: "test", version: "1.0.0", environment: "test")
+    |> IO.inspect
+    {:ok, client: client}
   end
 
   test "get all image types banged", state do
