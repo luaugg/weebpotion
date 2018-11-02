@@ -92,6 +92,7 @@ defmodule WeebPotion.Api do
     link = "/tags?hidden=#{opts[:hidden] || false}&nsfw=#{opts[:nsfw] || false}"
     get!(link, client.auth_header, recv_timeout: 500).body()
     |> decode!()
+    |> Map.fetch!("tags")
   end
 
   def delete_image(client, image_id) when (client !== nil and is_binary(image_id)) do
