@@ -93,4 +93,18 @@ defmodule WeebPotion.Api do
     get!(link, client.auth_header, recv_timeout: 500).body()
     |> decode!()
   end
+
+  def delete_image(client, image_id) when (client !== nil and is_binary(image_id)) do
+    link = "/info/#{image_id}"
+    try do
+      {:ok, response} = delete(link, client.auth_header, recv_timeout: 500)
+    catch
+      e -> {:error, e}
+    end
+  end
+
+  def delete_image!(client, image_id) when (client !== nil and is_binary(image_id)) do
+    link = "/info/#{image_id}"
+    delete!(link, client.auth_header, recv_timeout: 500)
+  end
 end
