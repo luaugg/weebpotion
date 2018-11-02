@@ -35,21 +35,23 @@ defmodule WeebPotion.Struct.Client do
   Constructs a new client struct using the options passed in via the `opts` key-word list.
 
   ## Parameters
-    - opts: A key-word list containing options to construct a client with.
+  - `opts`: A key-word list containing options to construct a client with.
 
   ## Examples
-    iex>WeebPotion.Struct.Client.new(token: "redacted", name: "test", version: "0.1.0")
-    %WeebPotion.Struct.Client{
-      application_name: "test",
-      auth_header: [
-        Authorization: "Wolke redacted",
-        "User-Agent": "test/0.1.0/dev"
-      ],
-      environment: "dev",
-      token: "redacted",
-      token_type: :Wolke,
-      version: "0.1.0"
-    }
+  ```
+  iex>WeebPotion.Struct.Client.new(token: "redacted", name: "test", version: "0.1.0")
+  %WeebPotion.Struct.Client{
+    application_name: "test",
+    auth_header: [
+      Authorization: "Wolke redacted",
+      "User-Agent": "test/0.1.0/dev"
+    ],
+    environment: "dev",
+    token: "redacted",
+    token_type: :Wolke,
+    version: "0.1.0"
+  }
+  ```
   """
   @spec new(list()) :: t
   def new(opts) when (is_list(opts)) do

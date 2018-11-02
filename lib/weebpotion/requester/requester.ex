@@ -26,12 +26,13 @@ defmodule WeebPotion.Requester do
 
   ## Parameters
 
-    - url: String that represents any weeb.sh endpoint.
+  - `url`: String that represents any weeb.sh endpoint.
 
   ## Examples
-
-    iex> WeebPotion.Requester.process_request_url("/random")
-    "https://api.weeb.sh/images/random"
+  ```
+  iex> WeebPotion.Requester.process_request_url("/random")
+  "https://api.weeb.sh/images/random"
+  ```
   """
   @spec process_request_url(String.t()) :: String.t()
   def process_request_url(url), do: "https://api.weeb.sh/images" <> url
