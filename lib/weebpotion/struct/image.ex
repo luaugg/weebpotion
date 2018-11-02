@@ -14,7 +14,6 @@
 #   limitations under the License.
 
 defmodule WeebPotion.Struct.Image do
-  @moduledoc false
   @derive [Poison.Encoder]
   defstruct [
     :id,
@@ -29,4 +28,23 @@ defmodule WeebPotion.Struct.Image do
     :source,
     :account
   ]
+
+  @typedoc """
+  Represents a single image returned from weeb.sh. As of v0.2.0, this type is only returned for
+  responses which are just images, so lists containing images will just be maps inside lists.
+  The keys are as follows:
+
+  * `:id` - Binary string equal to the ID of the image.
+  * `:type` - Binary string equal to the type of the image.
+  * `:baseType` - Binary string equal to the base-type of the image.
+  * `:nsfw` - Boolean equal to whether or not the image is NSFW.
+  * `:fileType` - Binary string equal to the filetype of the image.
+  * `:mimeType` - Binary string equal to the MIME type of the image.
+  * `:tags` - A list of tags that are applied to the image.
+  * `:url` - Binary string equal to the URL that points to the image.
+  * `:hidden` - Boolean equal to whether or not the image is only visible to its uploader.
+  * `:source` - Possibly-nil binary string equal to the source of the image (almost always `nil`).
+  * `:account` - Binary string equal to the ID of the account that uploaded the image.
+  """
+  @type t :: %__MODULE__{}
 end
