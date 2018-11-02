@@ -76,4 +76,21 @@ defmodule WeebPotion.Api do
       Map.fetch!(body, "types")
     end
   end
+
+  def image_tags(client, opts \\ []) when (client !== nil and is_list(opts)) do
+    link = "/tags?hidden=#{opts[:hidden] || false}&nsfw=#{opts[:nsfw] || false}"
+    try do
+      {:ok, response} = get(link, client.auth_header, recv_timeout: 500)
+      {:ok, body} = decode(response.body())
+      {:ok, tags} = Map.fetch(body, "tags")
+    catch
+      e -> {:error, e}
+    end
+  end
+
+  def image_tags!(client, opts \\ []) when (client !== nil and is_list(opts)) do
+    link = "/tags?hidden=#{opts[:hidden] || false}&nsfw=#{opts[:nsfw] || false}"
+    get!(link, client.auth_header, recv_timeout: 500).body()
+    |> decode!()
+  end
 end
