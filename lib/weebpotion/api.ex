@@ -115,7 +115,7 @@ defmodule WeebPotion.Api do
         {:error, :not_a_binary}
       else
         try do
-          {:ok, response} = get("/list/#{account_id}")
+          {:ok, response} = get("/list/#{account_id}", client.auth_header, recv_timeout: 500)
           {:ok, body} = decode(response.body())
         catch
           e -> {:error, e}
@@ -123,7 +123,7 @@ defmodule WeebPotion.Api do
       end
     else
       try do
-        {:ok, response} = get("/list")
+        {:ok, response} = get("/list", client.auth_header, recv_timeout: 500)
         {:ok, body} = decode(response.body())
       catch
         e -> {:error, e}
@@ -136,10 +136,10 @@ defmodule WeebPotion.Api do
       if !is_binary(account_id) do
         raise "not a binary!"
       end
-      get!("/list/#{account_id}").body()
+      get!("/list/#{account_id}", client.auth_header, recv_timeout: 500).body()
       |> decode!()
     else
-      get!("/list").body()
+      get!("/list", client.auth_header, recv_timeout: 500).body()
       |> decode!()
     end
   end
