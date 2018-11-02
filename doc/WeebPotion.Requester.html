@@ -890,7 +890,7 @@ otherwise.</p>
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">WeebPotion.Requester</span><span class="o">.</span><span class="n">process_request_url</span><span class="p" data-group-id="8580182995-1">(</span><span class="s">&quot;/random&quot;</span><span class="p" data-group-id="8580182995-1">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">WeebPotion.Requester</span><span class="o">.</span><span class="n">process_request_url</span><span class="p" data-group-id="1495071562-1">(</span><span class="s">&quot;/random&quot;</span><span class="p" data-group-id="1495071562-1">)</span><span class="w">
 </span><span class="s">&quot;https://api.weeb.sh/images/random&quot;</span></code></pre>
   </section>
 </div>
@@ -1115,14 +1115,14 @@ request is successful, <code class="inline">{:error, reason}</code> otherwise.</
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="5047608543-1">%</span><span class="nc" data-group-id="5047608543-1">HTTPoison.Request</span><span class="p" data-group-id="5047608543-1">{</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="9846123345-1">%</span><span class="nc" data-group-id="9846123345-1">HTTPoison.Request</span><span class="p" data-group-id="9846123345-1">{</span><span class="w">
   </span><span class="ss">method</span><span class="p">:</span><span class="w"> </span><span class="ss">:post</span><span class="p">,</span><span class="w">
   </span><span class="ss">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://my.website.com&quot;</span><span class="p">,</span><span class="w">
   </span><span class="ss">body</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{</span><span class="se">\&quot;</span><span class="s">foo</span><span class="se">\&quot;</span><span class="s">: 3}&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="ss">headers</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="5047608543-2">[</span><span class="p" data-group-id="5047608543-3">{</span><span class="s">&quot;Accept&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;application/json&quot;</span><span class="p" data-group-id="5047608543-3">}</span><span class="p" data-group-id="5047608543-2">]</span><span class="w">
-</span><span class="p" data-group-id="5047608543-1">}</span><span class="w">
+  </span><span class="ss">headers</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9846123345-2">[</span><span class="p" data-group-id="9846123345-3">{</span><span class="s">&quot;Accept&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;application/json&quot;</span><span class="p" data-group-id="9846123345-3">}</span><span class="p" data-group-id="9846123345-2">]</span><span class="w">
+</span><span class="p" data-group-id="9846123345-1">}</span><span class="w">
 
-</span><span class="n">request</span><span class="p" data-group-id="5047608543-4">(</span><span class="n">request</span><span class="p" data-group-id="5047608543-4">)</span></code></pre>
+</span><span class="n">request</span><span class="p" data-group-id="9846123345-4">(</span><span class="n">request</span><span class="p" data-group-id="9846123345-4">)</span></code></pre>
   </section>
 </div>
 <div class="detail" id="request/5">
@@ -1171,7 +1171,7 @@ request is successful, <code class="inline">{:error, reason}</code> otherwise.</
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="n">request</span><span class="p" data-group-id="1261373773-1">(</span><span class="ss">:post</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;https://my.website.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;{</span><span class="se">\&quot;</span><span class="s">foo</span><span class="se">\&quot;</span><span class="s">: 3}&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="1261373773-2">[</span><span class="p" data-group-id="1261373773-3">{</span><span class="s">&quot;Accept&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;application/json&quot;</span><span class="p" data-group-id="1261373773-3">}</span><span class="p" data-group-id="1261373773-2">]</span><span class="p" data-group-id="1261373773-1">)</span></code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="n">request</span><span class="p" data-group-id="4692502131-1">(</span><span class="ss">:post</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;https://my.website.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;{</span><span class="se">\&quot;</span><span class="s">foo</span><span class="se">\&quot;</span><span class="s">: 3}&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="4692502131-2">[</span><span class="p" data-group-id="4692502131-3">{</span><span class="s">&quot;Accept&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;application/json&quot;</span><span class="p" data-group-id="4692502131-3">}</span><span class="p" data-group-id="4692502131-2">]</span><span class="p" data-group-id="4692502131-1">)</span></code></pre>
   </section>
 </div>
 <div class="detail" id="start/0">

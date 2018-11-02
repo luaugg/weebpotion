@@ -102,7 +102,7 @@ defmodule WeebPotion.Api do
     if filetype !== :both, do: link <> "&filetype=#{filetype}"
     try do
       {:ok, response} = get(link, client.headers, recv_timeout: 500)
-      {:ok, image} = decode(response.body(), as: %Image{})
+      {:ok, _image} = decode(response.body(), as: %Image{})
     catch
       e -> {:error, e}
     end
@@ -170,7 +170,7 @@ defmodule WeebPotion.Api do
     link = "/info/#{image_id}"
     try do
         {:ok, response} = get(link, client.headers, recv_timeout: 500)
-        {:ok, image} = decode(response.body(), as: %Image{})
+        {:ok, _image} = decode(response.body(), as: %Image{})
     catch
       e -> {:error, e}
     end
@@ -218,7 +218,7 @@ defmodule WeebPotion.Api do
         |> Enum.with_index
         |> Enum.map(&({elem(&1, 0), Enum.at(preview, elem(&1, 1))}))
       else
-        {:ok, types} = Map.fetch(body, "types")
+        {:ok, _types} = Map.fetch(body, "types")
       end
     catch
       e -> {:error, e}
@@ -294,7 +294,7 @@ defmodule WeebPotion.Api do
     try do
       {:ok, response} = get(link, client.headers, recv_timeout: 500)
       {:ok, body} = decode(response.body())
-      {:ok, tags} = Map.fetch(body, "tags")
+      {:ok, _tags} = Map.fetch(body, "tags")
     catch
       e -> {:error, e}
     end
